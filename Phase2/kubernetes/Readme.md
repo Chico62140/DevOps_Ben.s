@@ -31,7 +31,7 @@ kubectl apply -f cronjob.yaml
 Since we're running Minikube with the Docker driver, use port-forward to access the app:
 
 ```bash
-kubectl port-forward service/flask-ben-service 5000:80 --address 0.0.0.0 &
+kubectl port-forward service/flask-ben-service 5000:80 --address 0.0.0.0
 ```
 
 Then open: http://localhost:5000
