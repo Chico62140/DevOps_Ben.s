@@ -28,12 +28,12 @@ DevOps_Ben/
 ### Phase 1 - Docker
 A simple Python Flask application containerized with Docker. The image is published on Docker Hub at `chico871/flask-ben:1.0.0`.
 
-See [Phase1/Flask_Bens/README.md](Phase1/Flask_Bens/README.md) for setup instructions.
+See (Phase1/Flask_Bens/README.md) for setup instructions.
 
 ### Phase 2 - Kubernetes
 The same Flask application deployed on a Kubernetes cluster using Minikube. Includes autoscaling, configuration management, health monitoring and scheduled jobs.
 
-See [Phase2/kubernetes/README.md](Phase2/kubernetes/README.md) for setup instructions.
+See (Phase2/kubernetes/README.md) for setup instructions.
 
 ## Tech Stack
 
