@@ -53,7 +53,7 @@ kubectl get all
 
 Check the ConfigMap is injected:
 ```bash
-kubectl exec -it $(kubectl get pod -l app=flask-ben -o jsonpath='{.items[0].metadata.name}') -- env | grep APP
+kubectl exec -it $(kubectl get pod -l app=flask-ben -o jsonpath='{.items[0].metadata.name}') -- env
 ```
 
 Check HPA status:
