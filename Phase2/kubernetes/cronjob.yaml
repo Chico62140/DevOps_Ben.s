@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: flask-ben-logger
+spec:
+  schedule: "*/5 * * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: logger
+              image: busybox
+              command:
+                - /bin/sh
+                - -c
+                - wget -q -O- http://flask-ben-service:80 && echo "Flask is UP - $(date)" || echo "Flask is DOWN - $(date)"
