@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-logger
+spec:
+  schedule: {{ .Values.cronjob.schedule | quote }}
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: logger
+              image: busybox
+              command:
+                - /bin/sh
+                - -c
+                - wget -q -O- http://{{ .Release.Name }}-service:80 && echo "Flask is UP - $(date)" || echo "Flask is DOWN - $(date)"
