@@ -1,5 +1,3 @@
-# flask-ben Helm Chart
-
 Helm chart for the Flask app from Phase 1 and 2.
 
 ## Install
