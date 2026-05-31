@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE = "chico871/flask-ben"
+        TAG   = "latest"
+    }
+
+    stages {
+        stage('build') {
+            steps {
+                sh 'docker build -t $IMAGE:$TAG Phase1/Flask_Bens'
+                sh 'docker push $IMAGE:$TAG'
+            }
+        }
+
+        stage('test') {
+            steps {
+                sh 'kubectl rollout status deployment/flask-ben --timeout=60s'
+                script {
+                    def url = sh(
+                        script: 'minikube service flask-ben --url',
+                        returnStdout: true
+                    ).trim()
+                    sh "curl -f ${url}"
+                }
+            }
+        }
+
+        stage('deploy') {
+            steps {
+                sh '''
+                    helm upgrade --install flask-ben Phase3/helm/flask-ben \\
+                        --set image.tag=$TAG \\
+                        --wait
+                '''
+            }
+        }
+    }
+}
