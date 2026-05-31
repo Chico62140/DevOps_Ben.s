@@ -4,6 +4,8 @@ pipeline {
     environment {
         IMAGE = "chico871/flask-ben"
         TAG   = "latest"
+        KUBECONFIG = "/root/.kube/config"
+        MINIKUBE_HOME = "/root"
     }
 
     stages {
