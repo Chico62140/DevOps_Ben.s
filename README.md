@@ -1,9 +1,7 @@
 # DevOps Course Project
-
 This repo contains my work for the DevOps course, organized by phase.
 
 ## Project Structure
-
 ```
 DevOps_Ben/
 ├── Phase1/          # Docker & containerization
@@ -13,20 +11,33 @@ DevOps_Ben/
 │       ├── docker-compose.yml
 │       ├── requirements.txt
 │       └── README.md
-└── Phase2/          # Kubernetes orchestration
-    └── kubernetes/
-        ├── flask_deploy.yaml
-        ├── service.yaml
-        ├── hpa.yaml
-        ├── configmap.yaml
-        ├── cronjob.yaml
-        └── README.md
+├── Phase2/          # Kubernetes orchestration
+│   └── kubernetes/
+│       ├── flask_deploy.yaml
+│       ├── service.yaml
+│       ├── hpa.yaml
+│       ├── configmap.yaml
+│       ├── cronjob.yaml
+│       └── README.md
+└── Phase3/          # Automation - Helm, Git workflows & CI/CD
+    ├── helm/
+    │   └── flask-ben/
+    │       ├── Chart.yaml
+    │       ├── values.yaml
+    │       └── templates/
+    │           ├── deployment.yaml
+    │           ├── service.yaml
+    │           ├── hpa.yaml
+    │           ├── configmap.yaml
+    │           └── cronjob.yaml
+    └── jenkins/
+        └── Jenkinsfile
 ```
 
 ## Phases
 
 ### Phase 1 - Docker
-A simple Python Flask application containerized with Docker. The image is published on Docker Hub at `chico871/flask-ben:1.0.0`.
+A simple Python Flask application containerized with Docker. The image is published on Docker Hub at `chico871/flask-ben:latest`.
 
 See (Phase1/Flask_Bens/README.md) for setup instructions.
 
@@ -35,9 +46,16 @@ The same Flask application deployed on a Kubernetes cluster using Minikube. Incl
 
 See (Phase2/kubernetes/README.md) for setup instructions.
 
-## Tech Stack
+### Phase 3 - Automation
+Packaged the Kubernetes manifests into a Helm chart and deployed it on Minikube. Built a Jenkins CI/CD pipeline with 3 stages: build the Docker image, test the live app, and deploy with Helm.
 
+See (Phase3/jenkins/Jenkinsfile) for the pipeline.
+
+## Tech Stack
 - Python / Flask
 - Docker / Docker Hub
 - Kubernetes / Minikube
 - kubectl
+- Helm
+- Git / GitHub
+- Jenkins
