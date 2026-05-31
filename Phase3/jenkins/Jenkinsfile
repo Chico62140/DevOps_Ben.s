@@ -19,7 +19,7 @@ pipeline {
                 sh 'kubectl rollout status deployment/flask-ben --timeout=60s'
                 script {
                     def url = sh(
-                        script: 'minikube service flask-ben --url',
+                        script: 'minikube service flask-ben-service --url',
                         returnStdout: true
                     ).trim()
                     sh "curl -f ${url}"
