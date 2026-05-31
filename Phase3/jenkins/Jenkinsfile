@@ -16,7 +16,6 @@ pipeline {
 
         stage('test') {
             steps {
-                sh 'minikube start --driver=docker --force || true'
                 sh 'kubectl rollout status deployment/flask-ben --timeout=60s'
                 script {
                     def url = sh(
