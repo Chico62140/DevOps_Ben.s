@@ -1,4 +1,8 @@
-replicaCount: 4
+<<<<<<< HEAD
+replicaCount: 3
+=======
+replicaCount: 3
+>>>>>>> dev
 
 image:
   repository: chico871/flask-ben
