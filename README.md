@@ -30,7 +30,7 @@ DevOps_Ben/
 │           ├── configmap.yaml
 │           └── cronjob.yaml
 └── jenkins/
-    └── Jenkinsfile
+└── Jenkinsfile
 
 ## Phases
 
