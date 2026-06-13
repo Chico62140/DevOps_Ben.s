@@ -12,7 +12,6 @@ pipeline {
         stage('build') {
             steps {
                 sh 'docker build -t $IMAGE:$TAG Phase1/Flask_Bens'
-                sh 'docker push $IMAGE:$TAG'
             }
         }
 
@@ -31,11 +30,7 @@ pipeline {
 
         stage('deploy') {
             steps {
-                sh '''
-                    helm upgrade --install flask-ben Phase3/helm/flask-ben \\
-                        --set image.tag=$TAG \\
-                        --wait
-                '''
+                sh 'docker push $IMAGE:$TAG'
             }
         }
     }
