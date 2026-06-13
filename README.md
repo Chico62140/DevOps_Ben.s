@@ -47,7 +47,7 @@ The same Flask application deployed on a Kubernetes cluster using Minikube. Incl
 See (Phase2/kubernetes/README.md) for setup instructions.
 
 ### Phase 3 - Automation
-Packaged the Kubernetes manifests into a Helm chart and deployed it on Minikube. Built a Jenkins CI/CD pipeline with 3 stages: build the Docker image, test the live app, and deploy with Helm.
+Packaged the Kubernetes manifests into a Helm chart and deployed it on Minikube. Built a Jenkins CI/CD pipeline with 3 stages: build the Docker image, test the live app, and deploy the image to dockerhub.
 
 See (Phase3/jenkins/Jenkinsfile) for the pipeline.
 
